@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IUser } from '../interfaces';
+import { IUser, ILogin } from '../interfaces';
 import userService from '../services/user.service';
 
 const createUser = async (req:Request, res:Response) => {
@@ -10,6 +10,15 @@ const createUser = async (req:Request, res:Response) => {
   return res.status(201).json({ token });
 };
 
-const userController = { createUser };
+const login = async (req: Request, res: Response) => {
+  const userCredentials = req.body as ILogin;
+  const { status, data, error } = await userService.login(userCredentials);
+
+  return error
+    ? res.status(status).json(error)
+    : res.status(status).json(data);
+};
+
+const userController = { createUser, login };
 
 export default userController;
