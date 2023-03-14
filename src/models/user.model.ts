@@ -10,9 +10,7 @@ const create = async (user: IUser) => {
     INSERT INTO Trybesmith.users (username, vocation, level, password ) VALUES (?, ?, ?, ?)`;
   const values = [username, vocation, level, password];
   
-  const [rows] = await connection.execute<ResultSetHeader>(query, values);
-
-  return rows;
+  await connection.execute<ResultSetHeader>(query, values);
 };
 
 const userModel = { create };
