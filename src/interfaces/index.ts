@@ -29,3 +29,19 @@ export interface IName {
 export interface IAmount {
   amount: string,
 }
+
+export interface IUsername {
+  username: string,
+}
+
+export interface IVocation {
+  vocation: string,
+}
+
+export interface ILevel {
+  level: number,
+}
+
+export interface IPassword {
+  password: string,
+}

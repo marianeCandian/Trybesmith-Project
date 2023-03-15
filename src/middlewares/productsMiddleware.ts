@@ -16,7 +16,7 @@ export const validateProductName = (req:Request, res:Response, next:NextFunction
     return res.status(422).json({ message: '"name" length must be at least 3 characters long' });
   }
 
-  next();
+  return next();
 };
 
 export const validateProductAmount = (req:Request, res:Response, next:NextFunction) => {
@@ -34,5 +34,5 @@ export const validateProductAmount = (req:Request, res:Response, next:NextFuncti
     return res.status(422).json({ message: '"amount" length must be at least 3 characters long' });
   }
 
-  next();
+  return next();
 };
