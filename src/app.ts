@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.post('/products', validateProductName, validateProductAmount, productsController.create);
 app.get('/orders', orderController.getAllOrders);
+app.post('/orders');
 app.get('/products', productsController.getAllProducts);
 app.post(
   '/users',
